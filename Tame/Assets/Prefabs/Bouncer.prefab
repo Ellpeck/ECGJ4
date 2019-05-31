@@ -67,7 +67,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 4
   m_Sprite: {fileID: -7260120905914459344, guid: 8e95f5803fc1809458217e0342162cf5,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -7052261092988475347, guid: 8e95f5803fc1809458217e0342162cf5,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 8593124328076136043}
   - component: {fileID: 8593124328076136045}
   - component: {fileID: 8593124328076136046}
+  - component: {fileID: -5103945344790445075}
   m_Layer: 9
   m_Name: Bouncer
   m_TagString: Untagged
@@ -305,6 +306,20 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &-5103945344790445075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8593124328076136041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5df2c3d42b621c498e62ecae710a71c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  currHealth: 0
 --- !u!1 &8593124328341687424
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +387,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 5041098824909643658, guid: 8e95f5803fc1809458217e0342162cf5,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

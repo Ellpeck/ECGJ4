@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
 
     private static readonly int Walking = Animator.StringToHash("Walking");
     private static readonly int Jumping = Animator.StringToHash("Jumping");
+    private static readonly int Shoot = Animator.StringToHash("Shoot");
 
     public float speed;
     public float jumpForce;
     public Transform groundCheck;
     public LayerMask groundLayers;
+    public Transform projectileOrigin;
+    public GameObject normalProjectile;
+    public GameObject conversionProjectile;
+    public float shootCooldown;
 
     private Animator animator;
     private Rigidbody2D body;
@@ -19,6 +25,8 @@ public class Player : MonoBehaviour {
     private float moveInput;
     private bool jump;
     private bool facingRight;
+    private bool useConversion;
+    private float currShootCooldown;
 
     private void Start() {
         this.animator = this.GetComponent<Animator>();
@@ -29,6 +37,17 @@ public class Player : MonoBehaviour {
         this.moveInput = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump"))
             this.jump = true;
+
+        if (this.currShootCooldown <= 0) {
+            var conversion = Input.GetButton("Fire2");
+            if (conversion || Input.GetButton("Fire1")) {
+                this.animator.SetTrigger(Shoot);
+                this.useConversion = conversion;
+                this.currShootCooldown = this.shootCooldown;
+            }
+        } else {
+            this.currShootCooldown -= Time.deltaTime;
+        }
     }
 
     private void FixedUpdate() {
@@ -49,6 +68,12 @@ public class Player : MonoBehaviour {
             }
         }
         this.jump = false;
+    }
+
+    [UsedImplicitly]
+    public void ShootProjectile() {
+        var prefabToUse = this.useConversion ? this.conversionProjectile : this.normalProjectile;
+        Instantiate(prefabToUse, this.projectileOrigin.position, this.projectileOrigin.rotation);
     }
 
 }

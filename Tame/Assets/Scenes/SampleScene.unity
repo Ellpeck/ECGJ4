@@ -632,7 +632,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313965409}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.34000015, y: -1.43, z: 0}
+  m_LocalPosition: {x: -0.34000015, y: -1.464, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1961849530}
@@ -674,7 +674,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 801598655983992016, guid: 913f63ea0c8ecbe4a83cd432883e26c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -753,6 +753,7 @@ MonoBehaviour:
   conversionProjectile: {fileID: 7830950975773096707, guid: 6f2b86f31b66dec4c871cb2a4481cd6b,
     type: 3}
   shootCooldown: 0.5
+  appliedUpgrades: []
 --- !u!70 &1387315749
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -824,6 +825,7 @@ MonoBehaviour:
   maxHealth: 5
   currHealth: 0
   cooldown: 1
+  spirit: {fileID: 0}
 --- !u!1001 &1655349769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1274,7 +1276,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 2495864320845663737, guid: 913f63ea0c8ecbe4a83cd432883e26c7,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

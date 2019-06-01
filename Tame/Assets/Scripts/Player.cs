@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
     public GameObject normalProjectile;
     public GameObject conversionProjectile;
     public float shootCooldown;
+    public List<Spirit> appliedUpgrades;
 
     private Animator animator;
     private Rigidbody2D body;
@@ -48,6 +49,15 @@ public class Player : MonoBehaviour {
         } else {
             this.currShootCooldown -= Time.deltaTime;
         }
+
+        for (var i = this.appliedUpgrades.Count - 1; i >= 0; i--) {
+            var upgrade = this.appliedUpgrades[i];
+            if (upgrade.IsDone()) {
+                upgrade.Unapply(this);
+                Destroy(upgrade.gameObject);
+                this.appliedUpgrades.RemoveAt(i);
+            }
+        }
     }
 
     private void FixedUpdate() {
@@ -74,6 +84,11 @@ public class Player : MonoBehaviour {
     public void ShootProjectile() {
         var prefabToUse = this.useConversion ? this.conversionProjectile : this.normalProjectile;
         Instantiate(prefabToUse, this.projectileOrigin.position, this.projectileOrigin.rotation);
+    }
+
+    public void ApplyUpgrade(Spirit upgrade) {
+        upgrade.Apply(this);
+        this.appliedUpgrades.Add(upgrade);
     }
 
 }

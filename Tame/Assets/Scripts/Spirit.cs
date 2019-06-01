@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class Spirit : MonoBehaviour {
 
+    public string identifier;
+    public bool canHaveMultiple;
+    public float lastingTime;
     public float addedSpeed;
     public float addedJumpForce;
-    public float lastingTime;
+    public float addedJumpTime;
 
     private float timer;
     private bool isApplied;
@@ -34,6 +37,7 @@ public class Spirit : MonoBehaviour {
         if (!this.isApplied) {
             player.speed += this.addedSpeed;
             player.jumpForce += this.addedJumpForce;
+            player.jumpTime += this.addedJumpTime;
             this.isApplied = true;
         }
     }
@@ -42,6 +46,7 @@ public class Spirit : MonoBehaviour {
         if (this.isApplied) {
             player.speed -= this.addedSpeed;
             player.jumpForce -= this.addedJumpForce;
+            player.jumpTime -= this.addedJumpTime;
             this.isApplied = false;
         }
     }

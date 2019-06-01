@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour {
 
@@ -11,6 +12,8 @@ public class Health : MonoBehaviour {
     public float currHealth;
     public float cooldown;
     public Spirit spirit;
+    public bool destroyOnDeath = true;
+    public UnityEvent onDeath;
 
     private float cooldownTimer;
     private Animator animator;
@@ -32,7 +35,9 @@ public class Health : MonoBehaviour {
 
         this.currHealth -= amount;
         if (this.currHealth <= 0) {
-            Destroy(this.gameObject);
+            if (this.destroyOnDeath)
+                Destroy(this.gameObject);
+            this.onDeath.Invoke();
             return true;
         }
 

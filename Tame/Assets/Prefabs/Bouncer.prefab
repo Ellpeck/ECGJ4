@@ -323,6 +323,12 @@ MonoBehaviour:
   currHealth: 0
   cooldown: 0
   spirit: {fileID: 7159536334059679642, guid: bcf4fada17e7bf74fa1ad5d65fecf960, type: 3}
+  destroyOnDeath: 1
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &-4022541395162776877
 MonoBehaviour:
   m_ObjectHideFlags: 0

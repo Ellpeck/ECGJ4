@@ -29,7 +29,7 @@ public class Bouncer : MonoBehaviour {
     private void FixedUpdate() {
         var onGround = Physics2D.OverlapCircle(this.groundCheck.position, 0.1F, this.groundLayers);
         if (onGround) {
-            var groundInFront = Physics2D.OverlapCircle(this.borderCheck.position, 0.1F, this.groundLayers);
+            var groundInFront = Physics2D.OverlapCircle(this.borderCheck.position, 0.5F, this.groundLayers);
             if (!groundInFront) {
                 this.facingRight = !this.facingRight;
                 this.transform.Rotate(0, 180, 0);

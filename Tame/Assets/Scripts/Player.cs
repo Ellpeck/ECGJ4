@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour {
 
     public float speed;
     public float jumpForce;
+    public float jumpTime;
     public Transform groundCheck;
     public LayerMask groundLayers;
     public Transform projectileOrigin;
@@ -24,10 +26,12 @@ public class Player : MonoBehaviour {
     private Rigidbody2D body;
 
     private float moveInput;
-    private bool jump;
+    private bool startJump;
     private bool facingRight;
     private bool useConversion;
     private float currShootCooldown;
+    private float jumpTimer;
+    private bool isInJump;
 
     private void Start() {
         this.animator = this.GetComponent<Animator>();
@@ -37,7 +41,7 @@ public class Player : MonoBehaviour {
     private void Update() {
         this.moveInput = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump"))
-            this.jump = true;
+            this.startJump = true;
 
         if (this.currShootCooldown <= 0) {
             var conversion = Input.GetButton("Fire2");
@@ -70,14 +74,29 @@ public class Player : MonoBehaviour {
 
         bool onGround = Physics2D.OverlapCircle(this.groundCheck.position, 0.1F, this.groundLayers);
         if (onGround) {
-            if (this.jump) {
+            if (this.startJump) {
                 this.body.velocity = new Vector2(this.body.velocity.x, this.jumpForce);
+                this.isInJump = true;
+                this.jumpTimer = this.jumpTime;
                 this.animator.SetBool(Jumping, true);
             } else {
                 this.animator.SetBool(Jumping, false);
             }
         }
-        this.jump = false;
+        this.startJump = false;
+
+        if (Input.GetButton("Jump")) {
+            if (this.isInJump) {
+                if (this.jumpTimer > 0) {
+                    this.jumpTimer -= Time.deltaTime;
+                    this.body.velocity = new Vector2(this.body.velocity.x, this.jumpForce);
+                } else {
+                    this.isInJump = false;
+                }
+            }
+        } else {
+            this.isInJump = false;
+        }
     }
 
     [UsedImplicitly]
@@ -86,9 +105,21 @@ public class Player : MonoBehaviour {
         Instantiate(prefabToUse, this.projectileOrigin.position, this.projectileOrigin.rotation);
     }
 
-    public void ApplyUpgrade(Spirit upgrade) {
-        upgrade.Apply(this);
-        this.appliedUpgrades.Add(upgrade);
+    public void ApplyUpgrade(Spirit upgrade, Vector3 position) {
+        if (!upgrade.canHaveMultiple) {
+            foreach (var curr in this.appliedUpgrades) {
+                if (curr.identifier == upgrade.identifier)
+                    return;
+            }
+        }
+
+        var inst = Instantiate(upgrade, position, Quaternion.identity);
+        inst.Apply(this);
+        this.appliedUpgrades.Add(inst);
+    }
+
+    public void OnDeath() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

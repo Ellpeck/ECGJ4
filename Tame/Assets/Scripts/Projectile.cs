@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour {
         var health = other.gameObject.GetComponent<Health>();
         if (health != null && health.TakeDamage(this.damage)) {
             if (this.isConversion && health.spirit)
-                this.player.ApplyUpgrade(Instantiate(health.spirit, other.transform.position, Quaternion.identity));
+                this.player.ApplyUpgrade(health.spirit, other.transform.position);
         }
 
         Destroy(this.gameObject);

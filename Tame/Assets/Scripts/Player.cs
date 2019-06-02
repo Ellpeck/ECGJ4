@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
     public float shootCooldown;
     public List<Spirit> appliedUpgrades;
     public bool[] hasPuzzlePieces = new bool[4];
+    public bool isMovementBlocked;
 
     private Animator animator;
     private Rigidbody2D body;
@@ -40,19 +41,23 @@ public class Player : MonoBehaviour {
     }
 
     private void Update() {
-        this.moveInput = Input.GetAxis("Horizontal");
-        if (Input.GetButtonDown("Jump"))
-            this.startJump = true;
+        if (!this.isMovementBlocked) {
+            this.moveInput = Input.GetAxis("Horizontal");
+            if (Input.GetButtonDown("Jump"))
+                this.startJump = true;
 
-        if (this.currShootCooldown <= 0) {
-            var conversion = Input.GetButton("Fire2");
-            if (conversion || Input.GetButton("Fire1")) {
-                this.animator.SetTrigger(Shoot);
-                this.useConversion = conversion;
-                this.currShootCooldown = this.shootCooldown;
+            if (this.currShootCooldown <= 0) {
+                var conversion = Input.GetButton("Fire2");
+                if (conversion || Input.GetButton("Fire1")) {
+                    this.animator.SetTrigger(Shoot);
+                    this.useConversion = conversion;
+                    this.currShootCooldown = this.shootCooldown;
+                }
+            } else {
+                this.currShootCooldown -= Time.deltaTime;
             }
         } else {
-            this.currShootCooldown -= Time.deltaTime;
+            this.moveInput = 0;
         }
 
         for (var i = this.appliedUpgrades.Count - 1; i >= 0; i--) {
@@ -100,6 +105,13 @@ public class Player : MonoBehaviour {
         } else {
             this.isInJump = false;
         }
+    }
+
+    public bool HasAllPieces() {
+        foreach (var piece in this.hasPuzzlePieces)
+            if (!piece)
+                return false;
+        return true;
     }
 
     [UsedImplicitly]

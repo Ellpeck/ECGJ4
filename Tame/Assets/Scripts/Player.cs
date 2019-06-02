@@ -134,6 +134,13 @@ public class Player : MonoBehaviour {
     }
 
     public void OnDeath() {
+        this.isMovementBlocked = true;
+        this.StartCoroutine(this.ReloadScene());
+    }
+
+    private IEnumerator ReloadScene() {
+        Fade.Instance.FadeOut();
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

@@ -21,6 +21,7 @@ public class Player : MonoBehaviour {
     public GameObject conversionProjectile;
     public float shootCooldown;
     public List<Spirit> appliedUpgrades;
+    public bool[] hasPuzzlePieces = new bool[4];
 
     private Animator animator;
     private Rigidbody2D body;

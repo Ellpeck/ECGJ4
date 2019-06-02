@@ -16,7 +16,7 @@ TagManager:
   - Ground
   - NoPlayerCollide
   - Player
-  - 
+  - NoCollide
   - 
   - 
   - 

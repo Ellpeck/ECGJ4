@@ -27,16 +27,18 @@ public class Bouncer : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        var onGround = Physics2D.OverlapCircle(this.groundCheck.position, 0.1F, this.groundLayers);
+        var filter = new ContactFilter2D();
+        filter.SetLayerMask(this.groundLayers);
+        bool onGround = Physics2D.defaultPhysicsScene.OverlapCircle(this.groundCheck.position, 0.1F, filter);
         if (onGround) {
-            var groundInFront = Physics2D.OverlapCircle(this.borderCheck.position, 0.5F, this.groundLayers);
-            if (!groundInFront) {
-                this.facingRight = !this.facingRight;
-                this.transform.Rotate(0, 180, 0);
-            }
-
             this.jumpWaitTimer += Time.deltaTime;
             if (this.jumpWaitTimer >= this.jumpWait) {
+                var groundInFront = Physics2D.defaultPhysicsScene.OverlapCircle(this.borderCheck.position, 0.5F, filter);
+                if (!groundInFront) {
+                    this.facingRight = !this.facingRight;
+                    this.transform.Rotate(0, 180, 0);
+                }
+                
                 this.body.velocity = new Vector2(this.facingRight ? this.speed : -this.speed, this.jumpForce);
                 this.animator.SetBool(Jumping, true);
                 this.jumpWaitTimer = 0;

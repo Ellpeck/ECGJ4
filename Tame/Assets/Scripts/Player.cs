@@ -72,7 +72,9 @@ public class Player : MonoBehaviour {
         }
         this.animator.SetBool(Walking, this.moveInput != 0);
 
-        bool onGround = Physics2D.OverlapCircle(this.groundCheck.position, 0.1F, this.groundLayers);
+        var filter = new ContactFilter2D();
+        filter.SetLayerMask(this.groundLayers);
+        bool onGround = Physics2D.defaultPhysicsScene.OverlapCircle(this.groundCheck.position, 0.1F, filter);
         if (onGround) {
             if (this.startJump) {
                 this.body.velocity = new Vector2(this.body.velocity.x, this.jumpForce);

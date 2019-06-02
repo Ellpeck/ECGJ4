@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class End : MonoBehaviour {
 
@@ -30,7 +27,9 @@ public class End : MonoBehaviour {
             yield return new WaitForSeconds(0.5F);
         }
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
+        Fade.Instance.FadeOut();
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene(this.nextLevel);
     }
 

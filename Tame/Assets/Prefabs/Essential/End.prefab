@@ -215,7 +215,7 @@ MonoBehaviour:
   - {fileID: 5531609002285571571}
   - {fileID: 5531609000860034269}
   completedColor: {r: 1, g: 1, b: 1, a: 1}
-  nextLevel: Level1
+  nextLevel: Level2
 --- !u!95 &5531609001866011797
 Animator:
   serializedVersion: 3

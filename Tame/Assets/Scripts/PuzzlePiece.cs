@@ -7,13 +7,16 @@ public class PuzzlePiece : MonoBehaviour {
 
     public int indexInLevel;
     public GameObject collectEffect;
+    public AudioClip collectSound;
 
     private void OnTriggerEnter2D(Collider2D other) {
         var player = other.GetComponent<Player>();
         if (player) {
             player.hasPuzzlePieces[this.indexInLevel] = true;
 
-            Instantiate(this.collectEffect, this.transform.position, Quaternion.identity);
+            var position = this.transform.position;
+            Instantiate(this.collectEffect, position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(this.collectSound, position);
             Destroy(this.gameObject);
         }
     }

@@ -149,6 +149,7 @@ MonoBehaviour:
   indexInLevel: 0
   collectEffect: {fileID: 3389676743108184706, guid: 0d67d213758e1f549aa84aed7ecba1f2,
     type: 3}
+  collectSound: {fileID: 8300000, guid: 2163c3928c591ca4489a08baf37c282a, type: 3}
 --- !u!58 &3483886357965233375
 CircleCollider2D:
   m_ObjectHideFlags: 0

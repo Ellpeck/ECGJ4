@@ -218,6 +218,7 @@ MonoBehaviour:
   nextLevel: Level2
   fillEffect: {fileID: 3389676743108184706, guid: 0d67d213758e1f549aa84aed7ecba1f2,
     type: 3}
+  placeSound: {fileID: 8300000, guid: 2163c3928c591ca4489a08baf37c282a, type: 3}
 --- !u!95 &5531609001866011797
 Animator:
   serializedVersion: 3

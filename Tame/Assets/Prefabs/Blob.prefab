@@ -120,6 +120,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  hurtSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: c6a6a57e3d733304782dde5dfaf6301e, type: 3}
 --- !u!70 &4226440041030995404
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class Health : MonoBehaviour {
     public Spirit spirit;
     public bool destroyOnDeath = true;
     public UnityEvent onDeath;
+    public AudioClip hurtSound;
+    public AudioClip deathSound;
 
     private float cooldownTimer;
     private Animator animator;
@@ -37,8 +39,13 @@ public class Health : MonoBehaviour {
         if (this.currHealth <= 0) {
             if (this.destroyOnDeath)
                 Destroy(this.gameObject);
+            if (this.deathSound)
+                AudioSource.PlayClipAtPoint(this.deathSound, this.transform.position);
             this.onDeath.Invoke();
             return true;
+        } else {
+            if (this.hurtSound)
+                AudioSource.PlayClipAtPoint(this.hurtSound, this.transform.position);
         }
 
         this.animator.SetTrigger(Hurt);

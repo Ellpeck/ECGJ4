@@ -9,6 +9,7 @@ public class End : MonoBehaviour {
     public string nextLevel;
     private bool isCompleted;
     public GameObject fillEffect;
+    public AudioClip placeSound;
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (this.isCompleted)
@@ -25,7 +26,9 @@ public class End : MonoBehaviour {
     private IEnumerator FillOutPieces() {
         foreach (var piece in this.pieces) {
             piece.color = this.completedColor;
-            Instantiate(this.fillEffect, piece.transform.position, Quaternion.identity);
+            var position = piece.transform.position;
+            Instantiate(this.fillEffect, position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(this.placeSound, position);
             yield return new WaitForSeconds(1);
         }
 

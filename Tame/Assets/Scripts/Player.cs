@@ -24,6 +24,7 @@ public class Player : MonoBehaviour {
     public bool[] hasPuzzlePieces = new bool[4];
     public bool isMovementBlocked;
     public int heaviness;
+    public AudioClip shootSound;
 
     private Animator animator;
     private Rigidbody2D body;
@@ -119,6 +120,7 @@ public class Player : MonoBehaviour {
     public void ShootProjectile() {
         var prefabToUse = this.useConversion ? this.conversionProjectile : this.normalProjectile;
         Instantiate(prefabToUse, this.projectileOrigin.position, this.projectileOrigin.rotation);
+        AudioSource.PlayClipAtPoint(this.shootSound, this.transform.position);
     }
 
     public void ApplyUpgrade(Spirit upgrade, Vector3 position) {

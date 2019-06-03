@@ -11,6 +11,7 @@ public class Spirit : MonoBehaviour {
     public float addedSpeed;
     public float addedJumpForce;
     public float addedJumpTime;
+    public int addedHeaviness;
 
     private float timer;
     private bool isApplied;
@@ -38,6 +39,7 @@ public class Spirit : MonoBehaviour {
             player.speed += this.addedSpeed;
             player.jumpForce += this.addedJumpForce;
             player.jumpTime += this.addedJumpTime;
+            player.heaviness += this.addedHeaviness;
             this.isApplied = true;
         }
     }
@@ -47,6 +49,7 @@ public class Spirit : MonoBehaviour {
             player.speed -= this.addedSpeed;
             player.jumpForce -= this.addedJumpForce;
             player.jumpTime -= this.addedJumpTime;
+            player.heaviness -= this.addedHeaviness;
             this.isApplied = false;
         }
     }

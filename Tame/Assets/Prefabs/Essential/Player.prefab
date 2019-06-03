@@ -179,6 +179,7 @@ MonoBehaviour:
   shootCooldown: 0.5
   appliedUpgrades: []
   hasPuzzlePieces: 00000000
+  isMovementBlocked: 0
 --- !u!50 &7989296114101277955
 Rigidbody2D:
   serializedVersion: 4
@@ -249,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currHealth: 0
-  cooldown: 1
+  cooldown: 2
   spirit: {fileID: 0}
   destroyOnDeath: 0
   onDeath:

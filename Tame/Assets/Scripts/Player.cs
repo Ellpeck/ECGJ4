@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
     public List<Spirit> appliedUpgrades;
     public bool[] hasPuzzlePieces = new bool[4];
     public bool isMovementBlocked;
+    public int heaviness;
 
     private Animator animator;
     private Rigidbody2D body;

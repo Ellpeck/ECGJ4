@@ -12,6 +12,7 @@ public class Spirit : MonoBehaviour {
     public float addedJumpForce;
     public float addedJumpTime;
     public int addedHeaviness;
+    public GameObject deathEffect;
 
     private float timer;
     private bool isApplied;
@@ -32,6 +33,11 @@ public class Spirit : MonoBehaviour {
 
     public bool IsDone() {
         return this.isApplied && this.timer >= this.lastingTime;
+    }
+
+    public void Destroy() {
+        Instantiate(this.deathEffect, this.transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 
     public void Apply(Player player) {

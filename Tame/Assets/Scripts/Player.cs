@@ -65,7 +65,7 @@ public class Player : MonoBehaviour {
             var upgrade = this.appliedUpgrades[i];
             if (upgrade.IsDone()) {
                 upgrade.Unapply(this);
-                Destroy(upgrade.gameObject);
+                upgrade.Destroy();
                 this.appliedUpgrades.RemoveAt(i);
             }
         }

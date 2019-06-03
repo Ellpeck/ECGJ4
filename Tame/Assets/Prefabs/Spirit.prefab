@@ -134,6 +134,9 @@ MonoBehaviour:
   addedSpeed: 0
   addedJumpForce: 0
   addedJumpTime: 0
+  addedHeaviness: 0
+  deathEffect: {fileID: 6218629501896111035, guid: 660c764ca9a9822408e32fe8f3a30b5e,
+    type: 3}
 --- !u!50 &233209080952637933
 Rigidbody2D:
   serializedVersion: 4

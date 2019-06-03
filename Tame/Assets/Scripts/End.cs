@@ -8,6 +8,7 @@ public class End : MonoBehaviour {
     public Color completedColor;
     public string nextLevel;
     private bool isCompleted;
+    public GameObject fillEffect;
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (this.isCompleted)
@@ -24,7 +25,8 @@ public class End : MonoBehaviour {
     private IEnumerator FillOutPieces() {
         foreach (var piece in this.pieces) {
             piece.color = this.completedColor;
-            yield return new WaitForSeconds(0.5F);
+            Instantiate(this.fillEffect, piece.transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(1);
         }
 
         yield return new WaitForSeconds(1);

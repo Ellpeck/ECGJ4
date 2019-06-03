@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 7242902251245724464, guid: 0a59a1ffdae71f64c83ec8dbc83cb939,
         type: 3}
       propertyPath: m_Name
-      value: Conversion Projectile Variant
+      value: Conversion Projectile
       objectReference: {fileID: 0}
     - target: {fileID: 7242902251245724470, guid: 0a59a1ffdae71f64c83ec8dbc83cb939,
         type: 3}
@@ -77,6 +77,12 @@ PrefabInstance:
       propertyPath: damage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7242902251245724468, guid: 0a59a1ffdae71f64c83ec8dbc83cb939,
+        type: 3}
+      propertyPath: hitEffect
+      value: 
+      objectReference: {fileID: 4646114750358699290, guid: 5ce6d4681aae50f498b3f4e3d43b1778,
+        type: 3}
     - target: {fileID: 7242902252597334108, guid: 0a59a1ffdae71f64c83ec8dbc83cb939,
         type: 3}
       propertyPath: m_Color.r

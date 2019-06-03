@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour {
     public float damage;
     public float speed;
     public float deathTime;
+    public GameObject hitEffect;
 
     private Player player;
     private Rigidbody2D body;
@@ -34,6 +35,7 @@ public class Projectile : MonoBehaviour {
                 this.player.ApplyUpgrade(health.spirit, other.transform.position);
         }
 
+        Instantiate(this.hitEffect, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 

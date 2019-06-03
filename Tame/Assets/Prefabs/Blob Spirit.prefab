@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 233209080952637931, guid: 5f197c398c75faa4b92b1934d0f334e0,
         type: 3}
       propertyPath: m_Name
-      value: Blob Spirit Variant
+      value: Blob Spirit
       objectReference: {fileID: 0}
     - target: {fileID: 233209080952637932, guid: 5f197c398c75faa4b92b1934d0f334e0,
         type: 3}

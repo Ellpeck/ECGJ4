@@ -45,4 +45,8 @@ public class Health : MonoBehaviour {
         return false;
     }
 
+    public void SpawnEffect(GameObject effect) {
+        Instantiate(effect, this.transform.position, Quaternion.identity);
+    }
+
 }

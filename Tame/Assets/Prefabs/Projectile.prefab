@@ -87,6 +87,8 @@ MonoBehaviour:
   damage: 2
   speed: 35
   deathTime: 3
+  hitEffect: {fileID: 8175756318297206243, guid: ad43cf64560f51445b411729e3442325,
+    type: 3}
 --- !u!1 &7242902252597334110
 GameObject:
   m_ObjectHideFlags: 0

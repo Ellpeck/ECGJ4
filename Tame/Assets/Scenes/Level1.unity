@@ -4051,17 +4051,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7443576869270767184, guid: 124c3d18fd92d1347a3a778235466f5c,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -17.814095
-      objectReference: {fileID: 0}
-    - target: {fileID: 7443576869270767184, guid: 124c3d18fd92d1347a3a778235466f5c,
-        type: 3}
-      propertyPath: m_Radius
-      value: 21.561226
-      objectReference: {fileID: 0}
-    - target: {fileID: 7443576869270767184, guid: 124c3d18fd92d1347a3a778235466f5c,
+    - target: {fileID: 2545682118092054868, guid: 124c3d18fd92d1347a3a778235466f5c,
         type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -4087,7 +4077,17 @@ PrefabInstance:
       propertyPath: spawnForce.y
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 2545682118092054868, guid: 124c3d18fd92d1347a3a778235466f5c,
+    - target: {fileID: 7443576869270767184, guid: 124c3d18fd92d1347a3a778235466f5c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -17.814095
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443576869270767184, guid: 124c3d18fd92d1347a3a778235466f5c,
+        type: 3}
+      propertyPath: m_Radius
+      value: 21.561226
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443576869270767184, guid: 124c3d18fd92d1347a3a778235466f5c,
         type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -6193,17 +6193,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7443576869270767184, guid: 124c3d18fd92d1347a3a778235466f5c,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -25.033943
-      objectReference: {fileID: 0}
-    - target: {fileID: 7443576869270767184, guid: 124c3d18fd92d1347a3a778235466f5c,
-        type: 3}
-      propertyPath: m_Radius
-      value: 28.781075
-      objectReference: {fileID: 0}
-    - target: {fileID: 7443576869270767184, guid: 124c3d18fd92d1347a3a778235466f5c,
+    - target: {fileID: 2545682118092054868, guid: 124c3d18fd92d1347a3a778235466f5c,
         type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -6229,7 +6219,17 @@ PrefabInstance:
       propertyPath: spawnForce.y
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 2545682118092054868, guid: 124c3d18fd92d1347a3a778235466f5c,
+    - target: {fileID: 7443576869270767184, guid: 124c3d18fd92d1347a3a778235466f5c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -25.033943
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443576869270767184, guid: 124c3d18fd92d1347a3a778235466f5c,
+        type: 3}
+      propertyPath: m_Radius
+      value: 28.781075
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443576869270767184, guid: 124c3d18fd92d1347a3a778235466f5c,
         type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -8964,6 +8964,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2545682118092054865, guid: 124c3d18fd92d1347a3a778235466f5c,
+        type: 3}
+      propertyPath: monsterToSpawn
+      value: 
+      objectReference: {fileID: 8593124328076136041, guid: 6127e701fda3bb944906549a55d65775,
+        type: 3}
+    - target: {fileID: 2545682118092054865, guid: 124c3d18fd92d1347a3a778235466f5c,
+        type: 3}
+      propertyPath: spawnInterval
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7443576869270767184, guid: 124c3d18fd92d1347a3a778235466f5c,
         type: 3}
       propertyPath: m_Offset.x
@@ -8978,17 +8989,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Offset.y
       value: -16.669933
-      objectReference: {fileID: 0}
-    - target: {fileID: 2545682118092054865, guid: 124c3d18fd92d1347a3a778235466f5c,
-        type: 3}
-      propertyPath: monsterToSpawn
-      value: 
-      objectReference: {fileID: 8593124328076136041, guid: 6127e701fda3bb944906549a55d65775,
-        type: 3}
-    - target: {fileID: 2545682118092054865, guid: 124c3d18fd92d1347a3a778235466f5c,
-        type: 3}
-      propertyPath: spawnInterval
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 124c3d18fd92d1347a3a778235466f5c, type: 3}

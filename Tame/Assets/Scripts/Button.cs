@@ -16,12 +16,12 @@ public class Button : MonoBehaviour {
     public Door[] doors;
 
     private Animator animator;
-    private LineRenderer cable;
+    private LineRenderer[] cables;
     private float downTimer;
 
     private void Start() {
         this.animator = this.GetComponent<Animator>();
-        this.cable = this.GetComponent<LineRenderer>();
+        this.cables = this.GetComponentsInChildren<LineRenderer>();
     }
 
     private void Update() {
@@ -30,7 +30,8 @@ public class Button : MonoBehaviour {
             if (this.downTimer <= 0) {
                 this.animator.SetTrigger(Up);
                 this.topCollider.enabled = true;
-                this.cable.colorGradient = this.cableOff;
+                foreach (var cable in this.cables)
+                    cable.colorGradient = this.cableOff;
                 foreach (var door in this.doors)
                     door.SetPowered(false);
             }
@@ -42,7 +43,8 @@ public class Button : MonoBehaviour {
         if (player != null && player.heaviness >= this.requiredHeaviness) {
             this.animator.SetTrigger(Down);
             this.topCollider.enabled = false;
-            this.cable.colorGradient = this.cableOn;
+            foreach (var cable in this.cables)
+                cable.colorGradient = this.cableOn;
             foreach (var door in this.doors)
                 door.SetPowered(true);
 

@@ -12,18 +12,37 @@ public class Door : MonoBehaviour {
     private new Collider2D collider;
 
     private bool powered;
+    private bool open;
+    private bool stopFromClosing;
 
     private void Start() {
         this.animator = this.GetComponent<Animator>();
         this.collider = this.GetComponent<Collider2D>();
     }
 
+    private void Update() {
+        if (this.open != this.powered) {
+            if (!this.powered && this.stopFromClosing)
+                return;
+
+            this.open = this.powered;
+            this.collider.enabled = !this.open;
+            this.animator.SetTrigger(this.open ? Powered : Unpowered);
+        }
+    }
+
     public void SetPowered(bool powered) {
-        if (powered == this.powered)
-            return;
         this.powered = powered;
-        this.collider.enabled = !powered;
-        this.animator.SetTrigger(powered ? Powered : Unpowered);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Player"))
+            this.stopFromClosing = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.CompareTag("Player"))
+            this.stopFromClosing = false;
     }
 
 }
